@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <TargetFramework>net6.0-ios</TargetFramework>
+    <TargetPlatformVersion>16.1</TargetPlatformVersion>
+    <SupportedOSPlatformVersion>11.0</SupportedOSPlatformVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <TargetPlatformIdentifier>iOS</TargetPlatformIdentifier>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <Version>3.0.0</Version>
+    <UseIOS>true</UseIOS>
+  </PropertyGroup>
+  <PropertyGroup>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{65926E5F-3DDA-460C-BC4B-FD8501AD0493}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>GMPhotoPicker.Xamarin</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>GMPhotoPickerXamarin</AssemblyName>
-    <ReleaseVersion>2.2.2</ReleaseVersion>
+    <ReleaseVersion>2.2.3</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,37 +79,14 @@
     </IpaPackageName>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-    <Reference Include="Calabash">
-      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.22.1\lib\Xamarin.iOS\Calabash.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
-    <InterfaceDefinition Include="Main.storyboard" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\..\src\GMImagePicker\GMImagePicker.csproj">
       <Project>{85DD427F-E5E4-462F-9EEA-E869369996E3}</Project>
@@ -109,5 +96,8 @@
   <ItemGroup>
     <BundleResource Include="Resources\OpenSans-Regular.ttf" />
     <BundleResource Include="Resources\OpenSans-Bold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.TestCloud.Agent" Version="0.23.2" />
   </ItemGroup>
 </Project>
